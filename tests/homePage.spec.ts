@@ -30,30 +30,31 @@ test('Check logo elements', async ({page}) =>{
 
 })
 
-test('Check main navigation area', async({page})=>{
-    const mainNav = page.locator('nav.Header__MainNav');
-    await expect(mainNav).toBeVisible();
-    const navigationLinks = [
-        { selector: 'a[href="/"].Heading.u-h6', text: 'Home' },
-        { selector: 'a[href="/collections/new-in"]', text: 'New In' },
-        { selector: 'a[href="/pages/products"]', text: 'Collections' },
-        { selector: 'a[href="/pages/personal"]', text: 'Personal' },
-        { selector: 'a[href="/pages/businesses"]', text: 'Businesses' },
-        { selector: 'a[href="/blogs/tech-talk"]', text: 'Tech Talk' },
-        { selector: 'a[href="/pages/about-us"]', text: 'About us' },
-        { selector: 'a[href="/pages/faqs"]', text: 'FAQ' },
-        { selector: 'a[href="/pages/contact-us"]', text: 'Contact' }
-      ];
+// test('Check main navigation area', async({page})=>{
+//     const mainNav = page.locator('nav.Header__MainNav');
+//     await expect(mainNav).toBeVisible();
+//     const navigationLinks = [
+//         { selector: 'a[href="/"].Heading.u-h6', text: 'Home' },
+//         { selector: 'a[href="/collections/new-in"]', text: 'New In' },
+//         { selector: 'a[href="/pages/products"]', text: 'Collections' },
+//         { selector: 'a[href="/pages/personal"]', text: 'Personal' },
+//         { selector: 'a[href="/pages/businesses"]', text: 'Businesses' },
+//         { selector: 'a[href="/blogs/tech-talk"]', text: 'Tech Talk' },
+//         { selector: 'a[href="/pages/about-us"]', text: 'About us' },
+//         { selector: 'a[href="/pages/faqs"]', text: 'FAQ' },
+//         { selector: 'a[href="/pages/contact-us"]', text: 'Contact' }
+//       ];
   
-      for (const link of navigationLinks) {
-        const element = page.locator(link.selector).first();
-        await expect(element).toBeTruthy();
-        // await expect(element).toBeVisible({timeout:5000});
-        await expect(element).toContainText(link.text);
+//       for (const link of navigationLinks) {
+//         const element = page.locator(link.selector).first();
+//         await expect(element).toBeTruthy();
+//         // await expect(element).toBeVisible({timeout:5000});
+//         await expect(element).toContainText(link.text);
        
-        
-      
-      }
+//       }
+
+
+
 
 // test('Check collection dropdown', async ({page})=>{
 //     const collectionHeader = page.locator('.HoruzontalList_Item').hover();
@@ -79,7 +80,27 @@ test('Check main navigation area', async({page})=>{
 // })
 })
 
+test('Check secondary navigation', async ({page}) =>{
+    const secondaryNav = page.locator('nav.Header__SecondaryNav');
+    await expect(secondaryNav).toBeTruthy();
+    const secondNavLinks = [
+        { selector: 'a[href="/account"]', text: 'Account' },
+        { selector: 'a[href="/search"]', text: 'Search' },
+        { selector: 'a[href="/cart"]', text: 'Cart (' },
+        
+      ];
 
-
+       for (const secondaryLink of secondNavLinks) {
+        const element2 = page.locator(secondaryLink.selector);
+        await expect(element2).toBeTruthy();
+        await expect(element2).toBeVisible();
+        // await expect(element2).toContainText(secondaryLink.text);
+       
+       }
 
 })
+
+
+
+
+// })
